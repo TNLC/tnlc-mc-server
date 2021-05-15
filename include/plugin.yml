@@ -1,0 +1,8 @@
+main: de.tnlc.mcserver.Plugin
+name: TNLC-Plugin
+version: 1.0
+api-version: 1.16
+commands:
+  battle:
+    description: Battle an idiot.
+    usage: "Usage: /<command> <player>"
