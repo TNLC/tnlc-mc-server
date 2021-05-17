@@ -6,3 +6,12 @@ commands:
   battle:
     description: Battle an idiot.
     usage: "Usage: /<command> <player>"
+  seedworld:
+    description: Create a world using a given seed.
+    usage: "Usage: /<command> <seed> [name]"
+  tpw:
+    description: Teleports you to a specific world.
+    usage: "Usage: /<command> <name>"
+  deletew:
+    description: Deletes a specific world.
+    usage: "Usage: /<command> <name>"
