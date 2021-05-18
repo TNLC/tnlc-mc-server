@@ -13,6 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
+import de.tnlc.mcserver.Utils;
+
 public class DeleteWorldCommand implements CommandExecutor {
 
     @Override
@@ -26,11 +28,14 @@ public class DeleteWorldCommand implements CommandExecutor {
             return true;
         }
 
-        World w1 = Bukkit.getWorld("world");
-        for (Player p : w.getPlayers()) {
-            if (w1 != null && args[0] != "world") p.teleport(w1.getSpawnLocation());
-            else p.kickPlayer(ChatColor.RED + "Deine Welt wird soeben gelöscht!");
-        }
+        World w1 = "world".equals(args[0]) ? null : Bukkit.getWorld("world");
+
+        if (w1 != null)
+            for (Player p : w.getPlayers())
+                p.teleport(w1.getSpawnLocation());
+        else
+            for (Player p : w.getPlayers())
+                p.kickPlayer(ChatColor.RED + "Deine Welt wird soeben gelöscht!");
 
         File worldFolder = w.getWorldFolder();
         Bukkit.unloadWorld(w, false);
@@ -38,15 +43,12 @@ public class DeleteWorldCommand implements CommandExecutor {
 
         return true;
     }
-    
+
     public static class TC implements TabCompleter {
         @Override
         public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-            List<String> worlds = new ArrayList<>();
-            for (World w : Bukkit.getServer().getWorlds())
-                worlds.add(w.getName());
-            return worlds;
+            return Utils.getWorldNames();
         }
     }
-    
+
 }

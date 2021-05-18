@@ -14,11 +14,17 @@ public class Plugin extends JavaPlugin {
 
     public void onEnable() {
         plugin = this;
+
         getCommand("tpw").setExecutor(new TPWorldCommand());
+        getCommand("tpw").setTabCompleter(new TPWorldCommand.TC());
+
         getCommand("battle").setExecutor(new BattleCommand());
+
         getCommand("deletew").setExecutor(new DeleteWorldCommand());
         getCommand("deletew").setTabCompleter(new DeleteWorldCommand.TC());
+
         getCommand("seedworld").setExecutor(new SeedWorldCommand());
+
         getCommand("randworld").setExecutor(new RandWorldCommand());
     }
 
