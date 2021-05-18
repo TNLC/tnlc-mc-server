@@ -18,6 +18,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import de.tnlc.mcserver.Constants;
 import de.tnlc.mcserver.Plugin;
 import de.tnlc.mcserver.listeners.BattleListener;
 
@@ -28,7 +29,7 @@ public class BattleCommand implements CommandExecutor {
         if (args.length != 1)
             return false;
         else if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Das können nur Spieler.");
+            sender.sendMessage(Constants.ONLY_PLAYERS);
             return true;
         }
         

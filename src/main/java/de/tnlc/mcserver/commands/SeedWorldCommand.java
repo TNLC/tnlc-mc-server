@@ -1,13 +1,12 @@
 package de.tnlc.mcserver.commands;
 
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import de.tnlc.mcserver.Constants;
 import de.tnlc.mcserver.Plugin;
-import net.md_5.bungee.api.ChatColor;
 
 public class SeedWorldCommand implements CommandExecutor {
 
@@ -26,7 +25,7 @@ public class SeedWorldCommand implements CommandExecutor {
         }
 
 
-        sender.sendMessage(ChatColor.GOLD + "Welt wird generiert...");
+        sender.sendMessage(Constants.WORLD_GEN);
 
         Plugin.getPlugin().getLogger().info("generating world with seed '" + seed + "' ("+ realSeed +") ...");
         
@@ -35,7 +34,7 @@ public class SeedWorldCommand implements CommandExecutor {
         worldCreator.seed(realSeed);
         worldCreator.createWorld();
 
-        sender.sendMessage(ChatColor.GREEN + "Welt wurde generiert!");
+        sender.sendMessage(Constants.WORLD_GEN_DONE);
 
         return true;
     }
