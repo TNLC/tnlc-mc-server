@@ -18,6 +18,8 @@ public class RandWorldCommand implements CommandExecutor {
         WorldCreator worldCreator = new WorldCreator(args[0]);
         worldCreator.createWorld();
 
+        sender.sendMessage(Constants.WORLD_GEN_DONE);
+
         return true;
     }
 

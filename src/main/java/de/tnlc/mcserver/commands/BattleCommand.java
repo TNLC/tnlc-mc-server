@@ -37,12 +37,12 @@ public class BattleCommand implements CommandExecutor {
         Player senderPlayer = (Player) sender;
 
         if (p == senderPlayer) {
-            sender.sendMessage(ChatColor.RED + "Du kannst dich nicht selbst herausfordern!");
+            sender.sendMessage(Constants.NO_SELF_CH);
             return true;
         }
         
         if (p == null) {
-            sender.sendMessage(ChatColor.RED + "Der angegebene Spieler scheint nicht aktiv zu sein.");
+            sender.sendMessage(Constants.PLAYER_NOT_ONLINE);
             return true;
         }
 

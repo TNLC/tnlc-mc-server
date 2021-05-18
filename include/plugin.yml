@@ -3,15 +3,18 @@ name: TNLC-Plugin
 version: 1.0
 api-version: 1.16
 commands:
-  battle:
-    description: Battle an idiot.
-    usage: "Usage: /<command> <player>"
-  seedworld:
-    description: Create a world using a given seed.
-    usage: "Usage: /<command> <seed> [name]"
   tpw:
     description: Teleports you to a specific world.
     usage: "Usage: /<command> <name>"
+  battle:
+    description: Battle an idiot.
+    usage: "Usage: /<command> <player>"
   deletew:
     description: Deletes a specific world.
+    usage: "Usage: /<command> <name>"
+  seedworld:
+    description: Create a world using a given seed.
+    usage: "Usage: /<command> <seed> [name]"
+  randworld:
+    description: Create a world using a random seed.
     usage: "Usage: /<command> <name>"
